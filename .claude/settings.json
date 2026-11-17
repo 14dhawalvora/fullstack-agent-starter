@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Bash(mvn:*)",
+      "Bash(mvn.cmd:*)",
+      "Bash(npm:*)",
+      "Bash(npm.cmd:*)",
+      "Bash(npx:*)",
+      "Bash(npx.cmd:*)",
+      "Bash(node:*)",
+      "Bash(java:*)",
+      "Bash(curl:*)",
+      "Bash(cd:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(tail:*)",
+      "Bash(head:*)",
+      "Bash(grep:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(./dev.sh:*)",
+      "Bash(./verify.sh:*)",
+      "Bash(./diagnose.sh:*)",
+      "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File ./dev.ps1:*)",
+      "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File ./verify.ps1:*)",
+      "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File ./diagnose.ps1:*)"
+    ],
+    "deny": [
+      "Bash(git push:*)",
+      "Bash(rm -rf:*)"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+# Profile for the Playwright stack (started by frontend/playwright.config.ts, never by dev.sh).
+# In-memory DB: Flyway migrates + seeds fresh on every run, and the dev DB in ./data is never touched.
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:e2edb;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH;DB_CLOSE_DELAY=-1
+
+logging:
+  file:
+    name: ../logs/e2e-backend.log

@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: app
+  datasource:
+    # File-based H2 in PostgreSQL mode: zero install, real SQL + transactions, data survives restarts.
+    # Swap to Postgres by changing url/username/password (and the driver dependency).
+    url: jdbc:h2:file:./data/appdb;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH;AUTO_SERVER=TRUE
+    username: sa
+    password: ""
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none   # Flyway owns the schema
+  flyway:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always   # dev only: shows db status for diagnostics
+
+logging:
+  pattern:
+    level: "%5p [%X{requestId:-}]"

@@ -1,0 +1,90 @@
+/* Base design system: tokens + a few reusable classes. Extend here; no UI library. */
+:root {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --text: #171a21;
+  --muted: #687083;
+  --border: #e4e7ee;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-soft: #eef0ff;
+  --success: #15803d;
+  --success-soft: #e8f6ec;
+  --danger: #c0362c;
+  --danger-soft: #fdecea;
+  --radius: 12px;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 2px 8px rgba(16, 24, 40, 0.04);
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.45;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+h1 { font-size: 1.6rem; margin: 0; letter-spacing: -0.01em; }
+h2 { font-size: 1.1rem; margin: 0; }
+p { margin: 0; }
+
+/* Layout */
+.app main { max-width: 820px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+.topbar {
+  display: flex; align-items: center; gap: 2rem; padding: 0.9rem 1.5rem;
+  background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10;
+}
+.brand { font-weight: 700; color: var(--accent); }
+.topbar nav { display: flex; gap: 1.25rem; flex: 1; }
+.topbar a { color: var(--muted); text-decoration: none; font-weight: 500; padding: 0.25rem 0; border-bottom: 2px solid transparent; }
+.topbar a.active { color: var(--text); border-bottom-color: var(--accent); }
+.stack { display: flex; flex-direction: column; gap: 1.25rem; }
+.stack-sm { display: flex; flex-direction: column; gap: 0.6rem; }
+.row-end { display: flex; justify-content: flex-end; gap: 0.5rem; }
+.page-header { display: flex; flex-direction: column; gap: 0.25rem; }
+
+/* Surfaces */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.25rem; box-shadow: var(--shadow); }
+.empty { text-align: center; color: var(--muted); padding: 2rem; }
+.error-card { background: var(--danger-soft); border-color: #f5c2bd; color: var(--danger); }
+
+/* Forms */
+label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+input, textarea, select {
+  font: inherit; color: var(--text); padding: 0.6rem 0.75rem; border: 1px solid var(--border); border-radius: 8px; background: #fff;
+}
+input:focus, textarea:focus, select:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+.field-error { color: var(--danger); font-size: 0.8rem; }
+
+/* Buttons */
+button {
+  font: inherit; font-weight: 600; padding: 0.55rem 1rem; border-radius: 8px; border: 1px solid transparent;
+  background: var(--accent); color: #fff; cursor: pointer; transition: background 0.15s;
+}
+button:hover:not(:disabled) { background: var(--accent-hover); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button.secondary { background: var(--surface); color: var(--accent); border-color: var(--border); }
+button.link { background: none; color: var(--accent); padding: 0; border: none; font-weight: 600; }
+
+/* Lists and tables */
+.list { list-style: none; margin: 0; padding: 0; }
+.list-item { display: flex; flex-direction: column; gap: 0.2rem; padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); }
+.list-item:last-child { border-bottom: none; }
+.list.card { padding: 0; }
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+th, td { padding: 0.65rem 0.75rem; border-bottom: 1px solid var(--border); }
+
+/* Badges */
+.badge { display: inline-block; padding: 0.15rem 0.55rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; background: var(--accent-soft); color: var(--accent); }
+.badge.success { background: var(--success-soft); color: var(--success); }
+.badge.danger { background: var(--danger-soft); color: var(--danger); }
+
+/* Toasts */
+.toasts { position: fixed; right: 1rem; bottom: 1rem; display: flex; flex-direction: column; gap: 0.5rem; z-index: 100; }
+.toast { padding: 0.7rem 1rem; border-radius: 10px; box-shadow: var(--shadow); font-weight: 500; background: var(--surface); border: 1px solid var(--border); min-width: 220px; }
+.toast-success { border-left: 4px solid var(--success); }
+.toast-error { border-left: 4px solid var(--danger); }
+.toast-info { border-left: 4px solid var(--accent); }
+
+/* Text */
+.muted { color: var(--muted); }
+.small { font-size: 0.8rem; }
